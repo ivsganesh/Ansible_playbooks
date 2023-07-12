@@ -1,0 +1,16 @@
+---
+ - name: This is for prompting variables
+   hosts: all
+   vars_prompt:
+     - name: "username"
+       prompt: "Please enter the username ?"
+       private: yes
+
+     - name: "password"
+       prompt: "Please enter the password ?"
+       private: yes
+
+   tasks:
+     - name: username && password is
+       debug:
+         msg: "The value of Username and Password variable is: {{ username }} and {{ password }}"

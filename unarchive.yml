@@ -1,0 +1,14 @@
+- name: This is a play
+  hosts: all
+  tasks:
+    - name: Extract apache-maven-3.6.3-bin.tar.gz
+      unarchive:
+        src: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.78/bin/apache-tomcat-9.0.78.tar.gz
+        dest: /home/ansadmin/tomcat/
+        remote_src: yes
+
+    - name: renaming
+      shell: |
+        mv /home/ansadmin/tomcat/apache-tomcat-9.0.78 /home/ansadmin/tomcat/apache_tomcat
+
+    

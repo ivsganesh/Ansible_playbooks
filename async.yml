@@ -1,0 +1,10 @@
+---
+
+- hosts: all
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: ansible async poll
+      command: /bin/sleep 20
+      async: 60
+      poll: 10

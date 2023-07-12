@@ -1,0 +1,19 @@
+---
+- hosts: all
+  gather_facts: no
+  become: yes
+  tasks:
+  - name: starting httpd
+    service: 
+      name: httpd 
+      state: stopped 
+      enabled: yes
+
+  - name: httpd status
+    shell: |
+      systemctl status httpd.service
+    register: httpd_status
+
+  - name: httpd status output
+    debug:
+      var: httpd_status

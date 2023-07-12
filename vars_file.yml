@@ -1,0 +1,9 @@
+---
+  - hosts: all
+    vars_files:
+      - "./vars.yml"
+    tasks:
+      - name: Adding the variable value
+        copy:
+          dest: /tmp/devops.txt
+          content: "{{ my_content }}"

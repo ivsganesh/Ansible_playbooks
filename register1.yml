@@ -1,0 +1,16 @@
+---
+  - name: Printing the variable using debug module
+    hosts: all
+    tasks:
+      - name: Printing the variable using debug module
+        shell: |
+          date
+        register: data
+
+      - name: print the register varibale
+        debug:
+          var: data
+
+      - name: print the register varibale
+        debug:
+          var: data.stdout_lines

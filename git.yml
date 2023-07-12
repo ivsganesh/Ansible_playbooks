@@ -1,0 +1,24 @@
+---
+- hosts: all
+  gather_facts: no
+  vars:
+    username: naveen5758
+    token: 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
+    repo_name: sample_project
+
+  tasks:
+    - name: Checkout The Code From Github Using Ansible.
+      git:
+        repo: 'https://{{ token }}@github.com/{{ username }}/{{ repo_name }}.git'
+        dest: /home/ansadmin/project/
+
+    - name: installing the maven
+      become: yes
+      yum:
+        name: maven
+        state: present
+
+    - name: executing the pom file
+      shell: |
+        cd /home/ansadmin/project/
+        mvn clean package

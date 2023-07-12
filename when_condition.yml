@@ -1,0 +1,20 @@
+---
+- hosts: all
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: httpd version
+      shell: |
+        rpm -qa | grep httpd | grep -i "httpd-2"
+      register: httpd_version
+
+    - name: httpd status output
+      debug:
+        var: httpd_version
+
+
+    - name: install httpd
+      yum: 
+        name: httpd 
+        state: present
+      when: httpd_version == 'httpd-2.4.57-1.amzn2.x86_64'

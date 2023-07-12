@@ -1,0 +1,15 @@
+---
+  - name: Installing the git software
+    hosts: all
+    become: yes
+    tasks:
+      - name: Instaling the git using yum module
+        yum:
+          name: "{{ item }}"
+          state: latest
+        with_items:
+          - git
+          - httpd
+          - java
+          - mutt
+          - tree
