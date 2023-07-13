@@ -1,0 +1,22 @@
+pipeline{
+agent any
+stages {
+
+stage("SCM"){
+steps{
+script{
+    echo 'Cloning Started'
+	git branch: 'master', credentialsId: 'New_github_passwd', url: 'https://github.com/naveentanish2/Ansible_script.git'
+	echo 'Cloning completed'
+       }
+      }
+     }
+stage("ansible execution"){
+steps{
+script{
+      ansiblePlaybook become: true, credentialsId: 'ansiblepasswd', inventory: '${workspace}/inventory', playbook: '${workspace}/${File_Name}'
+       }
+      }
+     }
+    }
+  }

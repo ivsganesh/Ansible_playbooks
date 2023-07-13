@@ -1,0 +1,17 @@
+pipeline{
+agent any
+stages {
+
+stage("SCM"){
+steps{
+script{
+    echo 'Cloning Started'
+	git branch: 'master', credentialsId: 'New_github_passwd', url: 'https://github.com/naveentanish2/Ansible_script.git'
+	echo 'Cloning completed'
+       }
+      }
+     }
+
+    }
+  }
+  
