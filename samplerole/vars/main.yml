@@ -1,0 +1,8 @@
+---
+# vars file for samplerole
+
+my_content: "This file created using roles  concept,Created by PSD Devops"
+name: "Sachin Tendulkar"
+game: "Cricket"
+place: "Mumbai"
+country: "India"

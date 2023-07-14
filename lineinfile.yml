@@ -1,0 +1,11 @@
+---
+- name: lineinfile demo
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Ansible lineinfile module.
+      lineinfile:
+        path: /home/ansadmin/lineinfile.txt
+        line: This is sample line
+        state: present
+        create: yes

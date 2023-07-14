@@ -1,0 +1,27 @@
+---
+ - name: Tags - Playbook
+   hosts: all
+
+   vars:
+    dev_var: "This script is going deploy DEV environment"
+    uat_var: "This script is going deploy UAT environment"
+    perf_var: "This script is going deploy PERF environment"
+    prod_var: "This script is going deploy PROD environment"
+    common_var: "This script is execute on all environments"
+
+   tasks:
+     - name: executing the COMMON script
+       debug:
+        var: common_var
+
+     - name: executing the DEV script
+       debug:
+         var: dev_var
+       tags:
+         - dev
+
+     - name: executing the UAT script
+       debug:
+         var: uat_var
+       tags:
+         - uat

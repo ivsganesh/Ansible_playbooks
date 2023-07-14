@@ -1,0 +1,11 @@
+---
+- hosts: all
+  gather_facts: no
+  tasks:
+    - name: add block of lines to a file.
+      blockinfile:
+        path: /home/ansadmin/users.txt
+        block: |
+           Naveen
+           Manoj
+        backup: yes

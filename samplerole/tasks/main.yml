@@ -1,0 +1,16 @@
+---
+# tasks file for samplerole
+- name: Copy the static file from remote to mgmt machines
+  copy: 
+    src: files/files_demo.txt 
+    dest: /home/ansadmin/
+
+
+- name: copy the jinja template
+  template:
+    src: templates/sample_templates.txt.j2
+    dest: /home/ansadmin/sample_templates.txt
+
+- debug:
+    msg: " I am from {{ name }} coming from {{ place }} located in {{ country }} and playing {{ game }}"
+

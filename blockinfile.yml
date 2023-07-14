@@ -1,0 +1,19 @@
+---
+- hosts: all
+  gather_facts: no
+  tasks:
+    - name: add block of lines to a file.
+      blockinfile:
+        path: /home/ansadmin/users.txt
+        block: |
+          [Unit]
+          Description=Port Exporter Service
+          After=network.target[Service]
+          Type=simple
+          User=root
+          Group=root
+          ExecStart=/opt/exporter/port_exporter-6.0.0.linux-amd64/PortAndProcess_Monitoring --config config.json
+          WorkingDirectory=/opt/exporter/port_exporter-6.0.0.linux-amd64SyslogIdentifier=port_exporter_service
+          Restart=always[Install]
+          WantedBy=default.target
+        backup: yes

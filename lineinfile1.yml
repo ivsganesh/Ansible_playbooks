@@ -1,0 +1,10 @@
+---
+- name: lineinfile demo
+  hosts: all
+  gather_facts: no
+  tasks:
+  - name: Ansible check directory.
+    lineinfile:
+     path: /home/ansadmin/lineinfile.txt
+     insertafter: '^Visakhapatnam'
+     line: '===================================='
